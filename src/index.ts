@@ -27,14 +27,14 @@ export class Application {
     this.childProcess.on('exit', (code, signal) => console.log('exit', { code, signal }))
   }
 
-  public stop() {
+  public stop = () => {
     if (this.childProcess) {
       this.childProcess.removeAllListeners()
       this.childProcess.kill('SIGKILL')
     }
   }
 
-  public restart() {
+  public restart = () => {
     this.stop()
     this.start()
   }
